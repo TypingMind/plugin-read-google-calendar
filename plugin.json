@@ -1,0 +1,56 @@
+{
+    "id": "get_google_calendar_events",
+    "code": "",
+    "uuid": "c9e58453-84d5-45c6-9b21-02cbdb8815da",
+    "emoji": "🧩",
+    "title": "Google Calendar",
+    "iconURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/480px-Google_%22G%22_logo.svg.png",
+    "disabled": false,
+    "httpAction": {
+        "id": "132b743d-97b4-4c96-bb93-2302e364d71b",
+        "url": "https://www.googleapis.com/calendar/v3/calendars/primary/events?maxResults={maxResults}&timeMin={timeMin}&timeMax={timeMax}",
+        "name": "",
+        "method": "GET",
+        "hasHeaders": true,
+        "requestHeaders": "{\n  \"Authorization\": \"Bearer {OAUTH_PLUGIN_ACCESS_TOKEN}\"\n}"
+    },
+    "openaiSpec": {
+        "name": "get_google_calendar_events",
+        "parameters": {
+            "type": "object",
+            "required": [
+                "timeMin",
+                "timeMax"
+            ],
+            "properties": {
+                "timeMax": {
+                    "type": "string",
+                    "description": "Must be an RFC3339 timestamp with mandatory time zone offset, for example, 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z."
+                },
+                "timeMin": {
+                    "type": "string",
+                    "description": "Must be an RFC3339 timestamp with mandatory time zone offset, for example, 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z."
+                }
+            }
+        },
+        "description": "Return the next 10 events in the current user Google's calendar starting from a specific time range"
+    },
+    "outputType": "respond_to_ai",
+    "oauthConfig": {
+        "scopes": "https://www.googleapis.com/auth/calendar.readonly",
+        "tokenURL": "https://oauth2.googleapis.com/token",
+        "contentType": "json",
+        "authorizationURL": "https://accounts.google.com/o/oauth2/v2/auth"
+    },
+    "userSettings": [
+        {
+            "name": "maxResults",
+            "label": "Max Results",
+            "description": "Number of events to return from the Google Calendar API (default: 10)",
+            "defaultValue": 10
+        }
+    ],
+    "overviewMarkdown": "Give AI read-only access to your Google Calendar",
+    "authenticationType": "AUTH_TYPE_OAUTH",
+    "implementationType": "http"
+}
