@@ -40,7 +40,9 @@
         "scopes": "https://www.googleapis.com/auth/calendar.readonly",
         "tokenURL": "https://oauth2.googleapis.com/token",
         "contentType": "json",
-        "authorizationURL": "https://accounts.google.com/o/oauth2/v2/auth"
+        "authorizationURL": "https://accounts.google.com/o/oauth2/v2/auth",
+        "prompt": "consent",
+        "accessType": "offline"
     },
     "userSettings": [
         {
